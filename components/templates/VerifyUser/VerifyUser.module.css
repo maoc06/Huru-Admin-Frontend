@@ -1,0 +1,13 @@
+.container {
+    padding: 155px 32px 32px;
+    overflow-y: auto;
+}
+
+.name {
+    text-transform: capitalize;
+}
+
+.actions {
+    display: flex;
+    gap: 32px;
+}

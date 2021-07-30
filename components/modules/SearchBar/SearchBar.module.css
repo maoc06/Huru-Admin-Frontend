@@ -1,0 +1,21 @@
+.bar {
+    background-color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    padding: 12px;
+    height: 55px;
+    width: 100%;
+}
+
+.input {
+    flex: 1;
+    margin-left: 8px;
+    height: 100%;
+    color: #4f4f4f;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0;
+    outline: 0;
+}

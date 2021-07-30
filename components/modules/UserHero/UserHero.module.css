@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+}
+
+.content {
+    margin-left: 16px;
+}
+
+.content p {
+    color: #333333;
+    font-size: 0.8rem;
+    margin: 0;
+}

@@ -1,0 +1,8 @@
+.sidebar {
+    box-shadow: 8px 2px 16px 0px rgba(0, 0, 0, 0.1);
+}
+
+.inner {
+    background-color: #e7ecf3;
+    color: #333333;
+}

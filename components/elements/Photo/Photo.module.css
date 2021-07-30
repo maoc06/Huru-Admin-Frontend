@@ -1,0 +1,6 @@
+.image {
+    position: relative;
+    min-height: 150px;
+    border-radius: 16px;
+    overflow: hidden;
+}

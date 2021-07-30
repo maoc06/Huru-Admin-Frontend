@@ -1,0 +1,40 @@
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 12px 12px 24px 0px rgba(153, 153, 153, 0.4);
+    display: flex;
+    height: 250px;
+    flex-direction: column;
+    margin-bottom: 24px;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer;
+}
+
+.image {
+    position: relative;
+    flex: 0.8;
+}
+
+.info {
+    flex: 0.2;
+    padding: 16px;
+}
+
+.info .title {
+    display: flex;
+    align-items: center;
+}
+
+.title .carId {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.info .user {
+    color: #4f4f4f;
+    margin: 0;
+    margin-top: 4px;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+}

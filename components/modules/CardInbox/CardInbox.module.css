@@ -1,0 +1,41 @@
+.card,
+.inner,
+.attch {
+    display: flex;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    padding: 16px 16px 8px;
+    gap: 16px;
+    width: 100%;
+}
+
+.content {
+    flex: 1;
+}
+
+.content p,
+.inner span {
+    color: #333333;
+}
+
+.inner span {
+    font-size: 0.8rem;
+}
+
+.inner {
+    justify-content: space-between;
+}
+
+.attch {
+    align-items: center;
+}
+
+.count {
+    color: #070d9a;
+    margin-left: 4px;
+}

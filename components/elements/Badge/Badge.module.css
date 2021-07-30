@@ -1,0 +1,14 @@
+.base {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.active {
+    background-color: #00b349;
+}
+
+.inactive {
+    background-color: #ff3333;
+}

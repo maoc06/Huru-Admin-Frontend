@@ -1,0 +1,60 @@
+.baseButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-top: 32px;
+    border: 0;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.primaryButton {
+    background: linear-gradient(to right, #070d9a, #0d15dc);
+    color: #fff;
+}
+
+.primaryButton:hover {
+    background: linear-gradient(to right, #070d9a, #060a80);
+}
+
+.sencondaryButton {
+    background-color: transparent !important;
+    border: 3px solid #ff3333;
+    color: #ff3333;
+}
+
+.sencondaryButton:hover {
+    border-color: #b82222;
+}
+
+.invertButton {
+    background: transparent !important;
+    border: 3px solid #070d9a;
+    color: #070d9a;
+}
+
+.invertButton:hover {
+    border-color: #060a80;
+}
+
+.sencondaryWhiteButton {
+    background-color: transparent !important;
+    border: 3px solid #fff;
+    color: #fff;
+}
+
+.sencondaryWhiteButton:hover {
+    border-color: rgb(173, 173, 173);
+    color: rgb(173, 173, 173);
+}
+
+.rejectButton {
+    background: #bdbdbd;
+    color: #4f4f4f;
+}

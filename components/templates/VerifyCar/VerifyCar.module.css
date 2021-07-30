@@ -1,0 +1,18 @@
+.container {
+    padding: 155px 32px 32px;
+}
+
+.name {
+    text-transform: capitalize;
+}
+
+.actions {
+    display: flex;
+    gap: 32px;
+}
+
+.photos {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+}
