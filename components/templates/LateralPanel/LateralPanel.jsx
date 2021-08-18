@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   ProSidebar,
   Menu,
@@ -18,10 +19,24 @@ export default function LateralPanel() {
   const auth = useAuth();
   const nav = useNav();
 
+  const [isGrant, setIsGrant] = useState(false);
+  const [user, setUser] = useState(false);
+
+  useEffect(() => {
+    if (auth.user) {
+      setIsGrant(auth.user.role === 'A');
+      setUser(auth.user);
+    }
+  }, [auth.user]);
+
   return (
     <ProSidebar width={'100%'} className={styles.sidebar}>
       <SidebarHeader className={styles.inner}>
-        <UserHeader />
+        <UserHeader
+          lastName={user.lastName}
+          name={user.name}
+          role={user.role}
+        />
       </SidebarHeader>
 
       <SidebarContent className={styles.inner}>
@@ -36,25 +51,29 @@ export default function LateralPanel() {
             Bandeja de entrada
           </MenuItem>
 
-          <MenuItem
-            active={nav.active === 'users'}
-            onClick={() => {
-              nav.navigate('users');
-            }}
-            icon={<PeopleAlt />}
-          >
-            Usuarios
-          </MenuItem>
+          {isGrant && (
+            <MenuItem
+              active={nav.active === 'users'}
+              onClick={() => {
+                nav.navigate('users');
+              }}
+              icon={<PeopleAlt />}
+            >
+              Usuarios
+            </MenuItem>
+          )}
 
-          <MenuItem
-            active={nav.active === 'cars'}
-            onClick={() => {
-              nav.navigate('cars');
-            }}
-            icon={<DriveEta />}
-          >
-            Vehículos
-          </MenuItem>
+          {isGrant && (
+            <MenuItem
+              active={nav.active === 'cars'}
+              onClick={() => {
+                nav.navigate('cars');
+              }}
+              icon={<DriveEta />}
+            >
+              Vehículos
+            </MenuItem>
+          )}
         </Menu>
       </SidebarContent>
 

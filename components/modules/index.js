@@ -4,6 +4,7 @@ import CardUser from './CardUser/CardUser';
 import Form from './Form/Form';
 import LoginForm from './Form/LoginForm';
 import StatusIndicator from './StatusIndicator/StatusIndicator';
+import Modal from './Modal/Modal';
 import UserHeader from './UserHeader/UserHeader';
 import UserHero from './UserHero/UserHero';
 import SearchBar from './SearchBar/SearchBar';
@@ -16,6 +17,7 @@ export {
   Form,
   LoginForm,
   StatusIndicator,
+  Modal,
   UserHeader,
   UserHero,
   SearchBar,

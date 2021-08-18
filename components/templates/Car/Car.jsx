@@ -3,7 +3,13 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { useStatusItem } from '../../../lib/updateStatusItem';
-import { formatDate, formatStatus, odometerRange } from '../../../utils';
+import {
+  capitalize,
+  formatDate,
+  formatSeconds,
+  formatStatus,
+  odometerRange,
+} from '../../../utils';
 import { Button, Title } from '../../elements';
 import { ItemState } from '../../modules';
 import styles from './Car.module.css';
@@ -14,6 +20,7 @@ const DISABLE_STATUS_ID = 2;
 export default function Car({ car }) {
   const statusItem = useStatusItem();
   const [isActive, setIsActive] = useState(false);
+  const [verifyCar, setVerifyCar] = useState(null);
 
   const {
     carId,
@@ -47,6 +54,15 @@ export default function Car({ car }) {
       console.log(error);
     }
   };
+
+  const handleDataCarVerified = async () => {
+    const res = await axios.get(`/api/carVerified/${carId}`);
+    if (res.data) setVerifyCar(res.data);
+  };
+
+  useEffect(() => {
+    handleDataCarVerified();
+  }, []);
 
   useEffect(() => {
     setIsActive(formatStatus(status));
@@ -99,7 +115,15 @@ export default function Car({ car }) {
           <br />
           <br />
           <strong>Vehículo activado por:</strong>
-          <span>{`Miguel Orrego (ID EV-44) el 5 de marzo de 2021 a las 03:15 PM`}</span>
+          {verifyCar && (
+            <span>{` ${capitalize(
+              `${verifyCar.verifiedBy.firstName} ${verifyCar.verifiedBy.lastName}`
+            )} (${verifyCar.verifiedBy.uid}) el ${formatDate({
+              date: formatSeconds(verifyCar.verifiedAt._seconds),
+              type: 'ISO',
+              withHour: true,
+            })}`}</span>
+          )}
           <br />
         </p>
 

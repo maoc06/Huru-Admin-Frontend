@@ -11,7 +11,7 @@ export default async (req, res) => {
 
     const requestUser = await db
       .collection(MAIN_COLLECTION)
-      .orderBy(REQ_DATE)
+      .orderBy(REQ_DATE, 'desc')
       .get();
 
     await Promise.all(

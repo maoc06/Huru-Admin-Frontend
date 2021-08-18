@@ -4,21 +4,20 @@ import { useEffect, useState } from 'react';
 import { Title, Subtitle } from '../../elements';
 import styles from './UserHeader.module.css';
 
-export default function UserHeader({}) {
-  const [user, setUser] = useState({ name: '', lastName: '', role: '' });
+export default function UserHeader({ name = '', lastName = '', role = 'E' }) {
+  // const [user, setUser] = useState({ name: '', lastName: '', role: '' });
 
-  useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    const { data } = jwt_decode(accessToken);
-    console.log(data);
-    setUser(data);
-  }, []);
+  // useEffect(() => {
+  //   const accessToken = localStorage.getItem('accessToken');
+  //   const { data } = jwt_decode(accessToken);
+  //   setUser(data);
+  // }, []);
 
   return (
     <div className={styles.container}>
-      <Title text={`${user.name} ${user.lastName}`} />
+      <Title text={`${name} ${lastName}`} />
       <Subtitle
-        text={user.role === 'A' ? 'Administrador' : 'Equipo de verificación'}
+        text={role === 'A' ? 'Administrador' : 'Equipo de verificación'}
       />
     </div>
   );

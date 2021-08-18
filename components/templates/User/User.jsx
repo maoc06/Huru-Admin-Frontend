@@ -4,7 +4,13 @@ import { useEffect, useState } from 'react';
 import { useStatusItem } from '../../../lib/updateStatusItem';
 import { Button } from '../../elements';
 import { UserHero, ItemState } from '../../modules';
-import { formatDate, formatPhone, formatStatus } from '../../../utils';
+import {
+  capitalize,
+  formatDate,
+  formatPhone,
+  formatSeconds,
+  formatStatus,
+} from '../../../utils';
 import styles from './User.module.css';
 
 const ENABLE_STATUS_ID = 1;
@@ -26,6 +32,7 @@ export default function User({ user }) {
   } = user;
 
   const [isActive, setIsActive] = useState(false);
+  const [verifyUser, setVerifyUser] = useState(null);
 
   const handleActionUser = () => {
     try {
@@ -45,6 +52,15 @@ export default function User({ user }) {
       console.log(error);
     }
   };
+
+  const handleDataUserVerified = async () => {
+    const res = await axios.get(`/api/userVerified/${uuid}`);
+    if (res.data) setVerifyUser(res.data);
+  };
+
+  useEffect(() => {
+    handleDataUserVerified();
+  }, []);
 
   useEffect(() => {
     setIsActive(formatStatus(status));
@@ -93,7 +109,17 @@ export default function User({ user }) {
         <br />
         <br />
         <strong>Cuenta verificada por:</strong>
-        <span>{` Miguel Orrego (ID EV-44) el 5 de marzo de 2021 a las 03:15 PM`}</span>
+        {verifyUser ? (
+          <span>{` ${capitalize(
+            `${verifyUser.verifiedBy.firstName} ${verifyUser.verifiedBy.lastName}`
+          )} (${verifyUser.verifiedBy.uid}) el ${formatDate({
+            date: formatSeconds(verifyUser.verifiedAt._seconds),
+            type: 'ISO',
+            withHour: true,
+          })}`}</span>
+        ) : (
+          <span>La cuenta aún no ha sido verificada.</span>
+        )}
         <br />
       </p>
 

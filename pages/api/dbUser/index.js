@@ -5,11 +5,11 @@ const endpoint = '/user';
 
 export default async (req, res) => {
   try {
-    if (req.method === 'PUT') {
+    if (req.method === 'PATCH') {
       const { accessToken, uuid, status } = req.body;
 
-      const { data } = await client.put(
-        endpoint,
+      const { data } = await client.patch(
+        `${endpoint}/status`,
         { uuid, status },
         {
           headers: {

@@ -4,6 +4,7 @@ module.exports = {
     domains: [
       'huru-storage.s3-sa-east-1.amazonaws.com',
       'huru-storage.s3.sa-east-1.amazonaws.com',
+      'huru-storage.s3.amazonaws.com',
     ],
   },
   env: {
