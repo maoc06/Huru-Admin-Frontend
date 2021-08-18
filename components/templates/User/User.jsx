@@ -37,7 +37,7 @@ export default function User({ user }) {
   const handleActionUser = () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      axios.put(`/api/dbUser`, {
+      axios.patch(`/api/dbUser`, {
         accessToken,
         uuid,
         status: isActive ? DISABLE_STATUS_ID : ENABLE_STATUS_ID,
